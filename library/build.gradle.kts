@@ -73,7 +73,7 @@ mavenPublishing {
 
     signAllPublications()
 
-    coordinates(group.toString(), "library", version.toString())
+    coordinates(group.toString(), "kalendar-kit", version.toString())
 
     pom {
         name = "KalendarKit"
@@ -81,26 +81,26 @@ mavenPublishing {
             KalendarKit is a Compose Multiplatform library designed to simplify the presentation of events for users to add. Using native APIs, KalendarKit allows developers to present a modal EventKit interface on 
             iOS and open the default calendar application on Android, making it easier to add events.
         """.trimIndent()
-        inceptionYear = "2024"
+        inceptionYear = "2025"
         url = "https://github.com/LotuxPunk/KalendarKit/"
         licenses {
             license {
-                name = "XXX"
-                url = "YYY"
-                distribution = "ZZZ"
+                name = "The Apache License, Version 2.0"
+                url = "https://www.apache.org/licenses/LICENSE-2.0.txt"
+                distribution = "https://www.apache.org/licenses/LICENSE-2.0.txt"
             }
         }
         developers {
             developer {
-                id = "XXX"
-                name = "YYY"
-                url = "ZZZ"
+                id = "lotuxpunk"
+                name = "Clément VANDENDAELEN"
+                url = "https://vandeas.be"
             }
         }
         scm {
-            url = "XXX"
-            connection = "YYY"
-            developerConnection = "ZZZ"
+            url = "https://github.com/LotuxPunk/KalendarKit/"
+            connection = "scm:git:git://github.com/LotuxPunk/KalendarKit.git"
+            developerConnection = "scm:git:ssh://git@github.com:LotuxPunk/KalendarKit.git"
         }
     }
 }
