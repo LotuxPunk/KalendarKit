@@ -15,3 +15,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "kalendar-kit"
 include(":library")
+include(":composeApp")

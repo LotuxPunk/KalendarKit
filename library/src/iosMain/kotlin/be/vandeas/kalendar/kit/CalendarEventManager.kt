@@ -47,9 +47,7 @@ actual class CalendarEventManager {
      * Presents a modal EKEventEditViewController that allows the user to review and possibly edit the
      * event details before deciding to save it.
      *
-     * @param schedule The schedule information for setting the event's start time.
-     * @param movie The movie details used for the event title, duration, and description.
-     * @param place The location details (address) for the event.
+     * @param value The event to be created.
      * @param presentingViewController The UIViewController that will present the modal.
      *
      * @return true if the modal was presented; false otherwise.
@@ -61,7 +59,6 @@ actual class CalendarEventManager {
         val startTime = value.startDate.toInstant(TimeZone.currentSystemDefault()).toNSDate()
         val endTime = (value.endDate.toInstant(TimeZone.currentSystemDefault())).toNSDate()
 
-        // Create an event with the basic details.
         val ekEvent = EKEvent.eventWithEventStore(eventStore).apply {
             title = value.title
             startDate = startTime
@@ -72,7 +69,6 @@ actual class CalendarEventManager {
             URL = value.url?.let { NSURL(string = it) }
         }
 
-        // Instantiate and configure the EKEventEditViewController.
         val eventEditVC = EKEventEditViewController().apply {
             event = ekEvent
             eventStore = this@CalendarEventManager.eventStore
@@ -81,13 +77,11 @@ actual class CalendarEventManager {
                     controller: EKEventEditViewController,
                     didCompleteWithAction: Long
                 ) {
-                    // When the user finishes editing (or cancels), dismiss the modal.
                     controller.dismissViewControllerAnimated(true, null)
                 }
             }
         }
 
-        // Present the modal edit view controller.
         presentingViewController.presentViewController(eventEditVC, true, null)
         true
     } == true
