@@ -16,6 +16,7 @@ import platform.UIKit.UIViewController
 import kotlin.apply
 import kotlin.let
 import kotlin.takeIf
+import kotlin.time.ExperimentalTime
 
 actual class CalendarEventManager {
     private val eventStore = EKEventStore()
@@ -52,7 +53,7 @@ actual class CalendarEventManager {
      *
      * @return true if the modal was presented; false otherwise.
      */
-    @OptIn(ExperimentalForeignApi::class)
+    @OptIn(ExperimentalForeignApi::class, ExperimentalTime::class)
     actual suspend fun createEvent(
         value: Event,
     ): Boolean = requestCalendarAccess().takeIf { it }?.let {

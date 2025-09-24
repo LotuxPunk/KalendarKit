@@ -6,6 +6,7 @@ import android.content.Intent
 import android.provider.CalendarContract
 import kotlinx.datetime.TimeZone
 import kotlinx.datetime.toInstant
+import kotlin.time.ExperimentalTime
 
 actual class CalendarEventManager {
     private lateinit var context: Context
@@ -20,6 +21,7 @@ actual class CalendarEventManager {
      *
      * @param value The event data to be added to the calendar.
      */
+    @OptIn(ExperimentalTime::class)
     actual suspend fun createEvent(value: Event): Boolean {
         val startTime = value.startDate.toInstant(TimeZone.currentSystemDefault()).toEpochMilliseconds()
         val endTime = value.endDate.toInstant(TimeZone.currentSystemDefault()).toEpochMilliseconds()
