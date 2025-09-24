@@ -29,7 +29,7 @@ To use KalendarKit in your project, you need to add the following dependencies t
 
 ```kotlin
 commonMain.dependencies {
-    implementation("be.vandeas:kalendar-kit:1.0.0")
+    implementation("be.vandeas:kalendar-kit:1.1.0")
 }
 ```
 
@@ -37,7 +37,7 @@ or using version catalog:
 
 ```toml
 [versions]
-kalendar-kit = "1.0.0"
+kalendar-kit = "1.1.0"
 
 [libraries]
 kalendar-kit = { module = "be.vandeas:kalendar-kit", version.ref = "kalendar-kit" }
